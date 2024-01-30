@@ -1,0 +1,10 @@
+{
+  "name": "Prefabs",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "author": "Owlbear Rodeo",
+  "homepage_url": "https://extensions.owlbear.rodeo/prefabs",
+  "icon": "/logo.png",
+  "description": "Create reusable prefabs out of your most common used items",
+  "background_url": "/background.html"
+}
