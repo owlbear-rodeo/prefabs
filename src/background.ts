@@ -1,8 +1,6 @@
 import OBR, { Item } from "@owlbear-rodeo/sdk";
 import { getPluginId } from "./getPluginId";
 
-import create from "./create.svg";
-import insert from "./insert.svg";
 import { addItems } from "./addItems";
 
 OBR.onReady(() => {
@@ -10,7 +8,7 @@ OBR.onReady(() => {
     id: getPluginId("create-menu"),
     icons: [
       {
-        icon: create,
+        icon: "/create.svg",
         label: "Create Prefab",
         filter: {
           roles: ["GM"],
@@ -31,7 +29,7 @@ OBR.onReady(() => {
     id: getPluginId("insert-menu"),
     icons: [
       {
-        icon: insert,
+        icon: "/insert.svg",
         label: "Insert Prefab",
         filter: {
           roles: ["GM"],
