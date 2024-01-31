@@ -19,7 +19,15 @@ export function App() {
         OBR.modal.close(getPluginId("prefab-form"));
 
         const selection = await OBR.player.getSelection();
-        if (selection) {
+        if (!selection || selection.length === 0) {
+          OBR.notification.show(
+            "Unable to create prefab: no selection",
+            "WARNING"
+          );
+          return;
+        }
+
+        try {
           const items = await OBR.scene.items.getItemAttachments(selection);
           const sceneName = `${name.slice(0, 256)} Prefab`;
           const thumbnailBlob = await (await fetch(thumbnail)).blob();
@@ -28,8 +36,15 @@ export function App() {
             .name(sceneName)
             .thumbnail(thumbnailBlob)
             .build();
-          OBR.assets.uploadScenes([scene], true);
-          OBR.player.deselect();
+          await OBR.player.deselect();
+          await OBR.assets.uploadScenes([scene], true);
+        } catch (error) {
+          console.error(error);
+          if (error instanceof Error) {
+            OBR.notification.show(error.message, "ERROR");
+          } else {
+            OBR.notification.show("Unknown error occurred", "ERROR");
+          }
         }
       }}
     >
