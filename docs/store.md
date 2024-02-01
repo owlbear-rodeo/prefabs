@@ -42,7 +42,7 @@ This will open a modal that will allow you to pick the prefabs you wish to inser
 
 ## Editing a Prefab
 
-A prefab is a scene. Just like any other scene you can edit the contents of a prefab by opening it and adding tokens, drawings or more. Once you are don't editing the prefab the next time you insert it, it will include these changes.
+A prefab is a scene. Just like any other scene you can edit the contents of a prefab by opening it and adding tokens, drawings or more. Once you are done editing the prefab the next time you insert it, it will include these changes.
 
 ![Open Prefab tile](https://raw.githubusercontent.com/owlbear-rodeo/prefabs/main/docs/tile.jpg)
 
