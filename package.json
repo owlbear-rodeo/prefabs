@@ -15,7 +15,7 @@
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.15.6",
     "@mui/material": "^5.15.6",
-    "@owlbear-rodeo/sdk": "github:owlbear-rodeo/sdk",
+    "@owlbear-rodeo/sdk": "^2.2.0",
     "pathkit-wasm": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
