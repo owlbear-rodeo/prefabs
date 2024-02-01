@@ -1,6 +1,6 @@
 ---
 title: Prefabs
-description: Create reusable prefabs out of your most common used items
+description: Create reusable prefabs out of your most used items
 author: Owlbear Rodeo
 image: https://raw.githubusercontent.com/owlbear-rodeo/prefabs/main/docs/header.jpg
 icon: https://prefabs.owlbear.rodeo/logo.png
