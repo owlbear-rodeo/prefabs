@@ -23,6 +23,9 @@ import OBR, {
 import { getPathKit } from "./pathkit";
 import { v4 as uuid } from "uuid";
 
+const BATCH_SIZE = 20;
+const MAX_BATCHES = 5;
+
 export async function addItems(items: Item[], position: Vector2) {
   const bounds = await getBounds(items);
 
@@ -50,8 +53,21 @@ export async function addItems(items: Item[], position: Vector2) {
 
     return newItem;
   });
-  await OBR.scene.items.addItems(newItems);
-  await OBR.player.select(newItems.map((item) => item.id));
+  if (items.length > BATCH_SIZE * MAX_BATCHES) {
+    await OBR.notification.show(
+      "Unable to add prefab: too many items",
+      "ERROR"
+    );
+  } else {
+    const batches = Math.ceil(newItems.length / BATCH_SIZE);
+    for (let i = 0; i < batches; i++) {
+      const from = i * BATCH_SIZE;
+      const to = (i + 1) * BATCH_SIZE;
+      const batch = newItems.slice(from, to);
+      await OBR.scene.items.addItems(batch);
+    }
+    await OBR.player.select(newItems.map((item) => item.id));
+  }
 }
 
 async function getBounds(items: Item[]) {
